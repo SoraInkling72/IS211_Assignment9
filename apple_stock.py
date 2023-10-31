@@ -3,28 +3,24 @@ import requests
 
 #link = https://finance.yahoo.com/quote/AAPL/history?p=AAPL
 
-def getHTMLdocument(url):
-    response = requests.get(url)
-    return response.text
+def download(url):
+    """
+    Reads data from a URL and returns data as string
 
-url_to_scrape = "https://finance.yahoo.com/quote/AAPL/history?p=AAPL"
-stock_data = getHTMLdocument(url_to_scrape)
-
-soup = BeautifulSoup(open(stock_data),
-                      "lxml")
+    :param url:
+    :return:
+    """
+    return requests.get(url).text
 
 # print(soup.prettify())
 
-historic_stock = soup.span.tr
-historic_stock.decompose()
-
-stocks = soup.find_all('tr')
-
-for tr in stocks:
-    date = tr.contents[0]
-    close_price = tr.get('tr')
-    print(date)
-    print(close_price)
 
 if __name__ == "__main__":
-    pass
+    apple_stock_url = " https://finance.yahoo.com/quote/AAPL/history?p=AAPL"
+    historic_data = download(apple_stock_url)
+
+    soup = BeautifulSoup(open(historic_data), features="lxml")
+
+    stock_data = soup.find_all('table', class_ = "W(100%) M(0)")
+
+    print(stock_data)
