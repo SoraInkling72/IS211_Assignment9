@@ -19,8 +19,8 @@ if __name__ == "__main__":
     apple_stock_url = " https://finance.yahoo.com/quote/AAPL/history?p=AAPL"
     historic_data = download(apple_stock_url)
 
-    soup = BeautifulSoup(open(historic_data), features="lxml")
+    soup = BeautifulSoup(historic_data, features="lxml")
 
-    stock_data = soup.find_all('table', class_ = "W(100%) M(0)")
+    stock_data = soup.find_all('table', class_= "W(100%) M(0)")
 
     print(stock_data)

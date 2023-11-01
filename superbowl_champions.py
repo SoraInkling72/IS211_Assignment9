@@ -10,8 +10,7 @@ def getHTMLdocument(url):
 url_to_scrape = "https://en.wikipedia.org/wiki/List_of_Super_Bowl_champions"
 football_champ = getHTMLdocument(url_to_scrape)
 
-soup = BeautifulSoup(open(football_champ),
-                      "lxml")
+soup = BeautifulSoup(football_champ, "lxml")
 
 # print(soup.prettify())
 

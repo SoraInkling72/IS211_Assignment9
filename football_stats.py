@@ -19,10 +19,9 @@ if __name__ == "__main__":
     football_url = "https://www.cbssports.com/nfl/stats/player/scoring/nfl/regular/all/"
     scoring_data = download(football_url)
 
-    soup = BeautifulSoup(open(scoring_data),"lxml")
+    soup = BeautifulSoup(scoring_data, features="lxml")
+    touchdown_data = soup.find_all('div', class_="TableBase")
 
-    touchdown_data = soup.find_all('table', class_="TableBase-table")
-
-    print(scoring_data)
+    print(touchdown_data)
 
 
