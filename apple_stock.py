@@ -16,14 +16,12 @@ def download(url):
 
 
 if __name__ == "__main__":
-    apple_stock_url = " https://finance.yahoo.com/quote/AAPL/history?p=AAPL"
+    apple_stock_url = "https://finance.yahoo.com/quote/AAPL/history?p=AAPL"
     historic_data = download(apple_stock_url)
 
     soup = BeautifulSoup(historic_data, features="lxml")
 
     stock_data = soup.find_all('table', class_="W(100%) M(0)")
-
-    print(stock_data)
 
     #This line read the rows, if the bracket with a number is present, it indicates the row to mark, and the colon determines the cells to ignore, before or after#
     rows = stock_data[0].find_all('tr')
