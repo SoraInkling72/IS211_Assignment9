@@ -17,7 +17,7 @@ def download(url):
 
 if __name__ == "__main__":
     apple_stock_url = "https://finance.yahoo.com/quote/AAPL/history?p=AAPL"
-    historic_data = download(apple_stock_url)
+    historic_data = download(apple_stock_url
 
     soup = BeautifulSoup(historic_data, features="lxml")
 
