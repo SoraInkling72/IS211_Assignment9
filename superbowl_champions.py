@@ -24,7 +24,7 @@ if __name__ == "__main__":
     super_bowl_data = soup.find_all('table', class_="wikitable sortable jquery-tablesorter")
 
     #This line read the rows, if the bracket with a number is present, it indicates the row to mark, and the colon determines the cells to ignore, before or after#
-    rows = super_bowl_data[0].find_all('tr')
+    rows = super_bowl_data[0].find_all('th')
 
     # This selects the headers
     headers = rows[0].find_all('th')
